@@ -1,0 +1,14 @@
+#!/bin/bash
+
+#SBATCH --nodes=1                          #numero de nodos (maximo 13)
+#SBATCH --job-name=RedesNeuronales                     #nombre del job
+#SBATCH --ntasks-per-node=4
+#SBATCH --time=12:00:00                     #tiempo de ejecucion (maximo 168 hrs)
+#SBATCH --partition=ibtesla                #cola de slurm
+#SBATCH --gres=gpu:1
+#SBATCH --qos=gpu
+
+module load conda
+source activate ambiente_11
+
+python iris.py
