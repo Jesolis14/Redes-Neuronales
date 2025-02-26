@@ -258,8 +258,21 @@ y_pred = mi_mejor_modelo.predict(X_predict)
 y_pred_labels = (y_pred > 0.5).astype(int)
 
 df_predictions = pd.DataFrame({
-    'id': X_predict['id'],
+    'id': X_pred['id'],
     'Response': y_pred_labels.flatten()
 })
 
 df_predictions.to_csv('Submission.csv')
+
+prediccion_test = mi_mejor_modelo.predict(X_test).ravel()
+
+pred_test = np.zeros(X_test.shape[0])
+
+for id in range(X_test.shape[0]):
+    pred_test[id] = np.round( prediccion_test[id])
+
+con = confusion_matrix( y_test , pred_test )
+disp = ConfusionMatrixDisplay( confusion_matrix = con,  display_labels = ['No-Venta','Venta'] ).plot()
+plt.savefig('Matriz')
+plt.close()
+
