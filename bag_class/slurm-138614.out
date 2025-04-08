@@ -1,0 +1,69 @@
+2025-03-28 16:01:25.889458: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2025-03-28 16:01:25.889571: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2025-03-28 16:01:25.890901: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2025-03-28 16:01:25.898828: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2025-03-28 16:01:27.099504: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+Found 15000 files belonging to 3 classes.
+Using 12000 files for training.
+Using 3000 files for validation.
+2025-03-28 16:01:47.432402: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1929] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 31134 MB memory:  -> device: 0, name: Tesla V100-SXM2-32GB, pci bus id: 0000:1d:00.0, compute capability: 7.0
+Epoch 1/80
+2025-03-28 16:02:20.371513: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:447] Loaded runtime CuDNN library: 8.1.0 but source was compiled with: 8.9.4.  CuDNN library needs to have matching major version and equal or higher minor version. If using a binary install, upgrade your CuDNN library.  If building from sources, make sure the library loaded at runtime is compatible with the version specified during compile configuration.
+2025-03-28 16:02:20.372302: W tensorflow/core/framework/op_kernel.cc:1839] OP_REQUIRES failed at conv_ops_fused_impl.h:625 : UNIMPLEMENTED: DNN library is not found.
+Traceback (most recent call last):
+  File "/LUSTRE/home/rn_lcc_11/Redes-Neuronales/bag_class/bag_class.py", line 179, in <module>
+    historial = modelo.fit(
+  File "/LUSTRE/home/rn_lcc_11/.conda/envs/jesus/lib/python3.9/site-packages/keras/src/utils/traceback_utils.py", line 70, in error_handler
+    raise e.with_traceback(filtered_tb) from None
+  File "/LUSTRE/home/rn_lcc_11/.conda/envs/jesus/lib/python3.9/site-packages/tensorflow/python/eager/execute.py", line 53, in quick_execute
+    tensors = pywrap_tfe.TFE_Py_Execute(ctx._handle, device_name, op_name,
+tensorflow.python.framework.errors_impl.UnimplementedError: Graph execution error:
+
+Detected at node sequential/conv2d/Relu defined at (most recent call last):
+  File "/LUSTRE/home/rn_lcc_11/Redes-Neuronales/bag_class/bag_class.py", line 179, in <module>
+
+  File "/LUSTRE/home/rn_lcc_11/.conda/envs/jesus/lib/python3.9/site-packages/keras/src/utils/traceback_utils.py", line 65, in error_handler
+
+  File "/LUSTRE/home/rn_lcc_11/.conda/envs/jesus/lib/python3.9/site-packages/keras/src/engine/training.py", line 1807, in fit
+
+  File "/LUSTRE/home/rn_lcc_11/.conda/envs/jesus/lib/python3.9/site-packages/keras/src/engine/training.py", line 1401, in train_function
+
+  File "/LUSTRE/home/rn_lcc_11/.conda/envs/jesus/lib/python3.9/site-packages/keras/src/engine/training.py", line 1384, in step_function
+
+  File "/LUSTRE/home/rn_lcc_11/.conda/envs/jesus/lib/python3.9/site-packages/keras/src/engine/training.py", line 1373, in run_step
+
+  File "/LUSTRE/home/rn_lcc_11/.conda/envs/jesus/lib/python3.9/site-packages/keras/src/engine/training.py", line 1150, in train_step
+
+  File "/LUSTRE/home/rn_lcc_11/.conda/envs/jesus/lib/python3.9/site-packages/keras/src/utils/traceback_utils.py", line 65, in error_handler
+
+  File "/LUSTRE/home/rn_lcc_11/.conda/envs/jesus/lib/python3.9/site-packages/keras/src/engine/training.py", line 590, in __call__
+
+  File "/LUSTRE/home/rn_lcc_11/.conda/envs/jesus/lib/python3.9/site-packages/keras/src/utils/traceback_utils.py", line 65, in error_handler
+
+  File "/LUSTRE/home/rn_lcc_11/.conda/envs/jesus/lib/python3.9/site-packages/keras/src/engine/base_layer.py", line 1149, in __call__
+
+  File "/LUSTRE/home/rn_lcc_11/.conda/envs/jesus/lib/python3.9/site-packages/keras/src/utils/traceback_utils.py", line 96, in error_handler
+
+  File "/LUSTRE/home/rn_lcc_11/.conda/envs/jesus/lib/python3.9/site-packages/keras/src/engine/sequential.py", line 398, in call
+
+  File "/LUSTRE/home/rn_lcc_11/.conda/envs/jesus/lib/python3.9/site-packages/keras/src/engine/functional.py", line 515, in call
+
+  File "/LUSTRE/home/rn_lcc_11/.conda/envs/jesus/lib/python3.9/site-packages/keras/src/engine/functional.py", line 672, in _run_internal_graph
+
+  File "/LUSTRE/home/rn_lcc_11/.conda/envs/jesus/lib/python3.9/site-packages/keras/src/utils/traceback_utils.py", line 65, in error_handler
+
+  File "/LUSTRE/home/rn_lcc_11/.conda/envs/jesus/lib/python3.9/site-packages/keras/src/engine/base_layer.py", line 1149, in __call__
+
+  File "/LUSTRE/home/rn_lcc_11/.conda/envs/jesus/lib/python3.9/site-packages/keras/src/utils/traceback_utils.py", line 96, in error_handler
+
+  File "/LUSTRE/home/rn_lcc_11/.conda/envs/jesus/lib/python3.9/site-packages/keras/src/layers/convolutional/base_conv.py", line 321, in call
+
+  File "/LUSTRE/home/rn_lcc_11/.conda/envs/jesus/lib/python3.9/site-packages/keras/src/activations.py", line 306, in relu
+
+  File "/LUSTRE/home/rn_lcc_11/.conda/envs/jesus/lib/python3.9/site-packages/keras/src/backend.py", line 5395, in relu
+
+DNN library is not found.
+	 [[{{node sequential/conv2d/Relu}}]] [Op:__inference_train_function_2112]
+2025-03-28 16:02:20.526323: W tensorflow/core/kernels/data/generator_dataset_op.cc:108] Error occurred when finalizing GeneratorDataset iterator: FAILED_PRECONDITION: Python interpreter state is not initialized. The process may be terminated.
+	 [[{{node PyFunc}}]]

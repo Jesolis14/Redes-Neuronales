@@ -148,7 +148,7 @@ def build_model(hp):
     for i in range(hp.Int("num_layers", 1, 3)):
         model.add(
             Dense(
-                units      = hp.Int   (f'units_{i}', min_value=1, max_value=4, step=1 ),
+                units      = hp.Int   (f'units_{i}', min_value=5, max_value=10, step=1 ),
                 activation = hp.Choice(f"activation_{i}", ["relu", "selu","leaky_relu"]),
             )
         )
